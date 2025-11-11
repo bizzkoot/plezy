@@ -45,6 +45,58 @@ Plezy is a modern Plex media client that provides a seamless streaming experienc
 - Audio and subtitle track selection with user profile preferences
 - Playback progress sync and resume functionality
 - Auto-play next episode
+- **Android gesture controls**: Swipe for brightness and volume (Android only)
+
+### 🎮 Gesture Controls (Android)
+
+Plezy for Android includes intuitive gesture controls for adjusting brightness and volume during video playback, similar to popular video players like YouTube and VLC.
+
+#### How to Use
+
+- **Brightness Control:** Swipe up or down on the **left half** of the video player
+  - Swipe up: Increase screen brightness
+  - Swipe down: Decrease screen brightness
+
+- **Volume Control:** Swipe up or down on the **right half** of the video player
+  - Swipe up: Increase media volume
+  - Swipe down: Decrease media volume
+
+#### Visual Feedback
+
+During gestures, an on-screen indicator shows:
+- Current control type (brightness or volume icon)
+- Current level (percentage)
+- Progress bar visualization
+
+The indicator automatically fades out after 1 second of inactivity.
+
+#### Platform Availability
+
+Gesture controls are **Android-only** and automatically disabled on:
+- iOS
+- Windows
+- macOS
+- Linux
+- Web
+
+#### Permissions
+
+The following Android permissions are required:
+- `MODIFY_AUDIO_SETTINGS` - For volume control (granted automatically)
+- `WRITE_SETTINGS` - For brightness control (may require manual grant)
+
+If brightness control doesn't work, grant the "Modify system settings" permission:
+1. Open Android Settings
+2. Navigate to Apps > Plezy > Permissions
+3. Enable "Modify system settings"
+
+#### Compatibility with Existing Gestures
+
+Gesture controls work seamlessly alongside existing double-tap gestures:
+- **Double-tap left:** Rewind video (unchanged)
+- **Double-tap right:** Fast-forward video (unchanged)
+- **Swipe up/down left:** Brightness control (new)
+- **Swipe up/down right:** Volume control (new)
 
 ## Prerequisites
 

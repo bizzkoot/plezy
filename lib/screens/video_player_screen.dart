@@ -21,6 +21,7 @@ import '../utils/platform_detector.dart';
 import '../utils/provider_extensions.dart';
 import '../utils/video_player_navigation.dart';
 import '../widgets/video_controls/video_controls.dart';
+import '../widgets/video_gesture_overlay.dart';
 import '../i18n/strings.g.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
@@ -1376,20 +1377,23 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
           },
           child: Stack(
             children: [
-              // Video player
+              // Video player with gesture overlay
               Center(
-                child: Video(
-                  controller: controller!,
-                  fit: _getCurrentBoxFit,
-                  controls: (state) => plexVideoControlsBuilder(
-                    player!,
-                    widget.metadata,
-                    onNext: _nextEpisode != null ? _playNext : null,
-                    onPrevious: _previousEpisode != null ? _playPrevious : null,
-                    availableVersions: _availableVersions,
-                    selectedMediaIndex: widget.selectedMediaIndex,
-                    boxFitMode: _boxFitMode,
-                    onCycleBoxFitMode: _cycleBoxFitMode,
+                child: VideoGestureOverlay(
+                  enabled: true,
+                  child: Video(
+                    controller: controller!,
+                    fit: _getCurrentBoxFit,
+                    controls: (state) => plexVideoControlsBuilder(
+                      player!,
+                      widget.metadata,
+                      onNext: _nextEpisode != null ? _playNext : null,
+                      onPrevious: _previousEpisode != null ? _playPrevious : null,
+                      availableVersions: _availableVersions,
+                      selectedMediaIndex: widget.selectedMediaIndex,
+                      boxFitMode: _boxFitMode,
+                      onCycleBoxFitMode: _cycleBoxFitMode,
+                    ),
                   ),
                 ),
               ),
